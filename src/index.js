@@ -10,6 +10,7 @@ let save = document.getElementById("save");
 
 // Variable for scoring
 let numberRandom = document.getElementById("number");
+let gameOver = document.getElementById("gameOver");
 
 playerOneTotalCount = 0;
 playerTwoTotalCount = 0;
@@ -23,11 +24,15 @@ player2Turn = false;
 // Class for activ player slate-700/100
 
 function turnSystem() {
-  if (player1Turn === false) {
-    player2Turn = true;
-    player2Play();
+  if (playerOneTotalCount > 100 || playerTwoTotalCount > 100) {
+    gameOver.innerHTML = "Le partie est terminée";
   } else {
-    player1Play();
+    if (player1Turn === false) {
+      player2Turn = true;
+      player2Play();
+    } else {
+      player1Play();
+    }
   }
 }
 // Quand un joueur HOLD, c'est au jouieur suivant de jouer
@@ -37,7 +42,7 @@ function randomNumber(min, max) {
 }
 
 function player1Play() {
-  let numb = randomNumber(1, 6);
+  let numb = randomNumber(2, 6);
   playerOneContainer.classList.add("bg-slate-800");
   const diceImage = "../images/dice" + numb + ".png";
   document.querySelectorAll("img")[0].setAttribute("src", diceImage);
