@@ -23,6 +23,9 @@ player1Turn = true;
 player2Turn = false;
 
 // Class for activ player slate-700/100
+// TODO : Style for active player
+// TODO : Optimize style and logic
+// TODO : Cleaning code and logic
 
 function turnSystem() {
   if (playerOneTotalCount > 100 || playerTwoTotalCount > 100) {
