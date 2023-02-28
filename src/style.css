@@ -1,9 +1,10 @@
-* {
-  background-color: bisque;
-}
 .diceBox {
     top : 25%; 
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  #roll-button {
+   margin-top: 250px; 
   }
   

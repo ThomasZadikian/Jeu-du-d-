@@ -20,7 +20,6 @@ function player1Count() {
   let numb = randomNumber(1, 6);
   const diceImage = "../images/dice" + numb + ".png";
   document.querySelectorAll("img")[0].setAttribute("src", diceImage);
-  numberRandom.innerHTML = numb;
   if (numb === 1) {
     actualCount = 0;
   } else {

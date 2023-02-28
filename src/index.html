@@ -21,30 +21,35 @@
 
     <!-- Game container -->
     <div class="flex flex-row">
-      <div class="bg-sky-500/50 basis-2/4">
-        <h1>Player 1</h1>
-        <p>Compteur : <span id="count"></span></p>
-
-        <p>Total :<span id="totalPlayer1"> </span></p>
+      <!-- PLAYER 1 CONTAINER -->
+      <div class="basis-2/4" id="player1Container">
+        <h1 class="text-5xl text-center">PLAYER 1</h1>
+        <p class="text-center mt-10 text-5xl" id="totalPlayer1">0</p>
+        <div class="currentScore text-center">
+          <p class="mt-10">Current</p>
+          <p class="text-5xl" id="count">0</p>
+        </div>
       </div>
 
+      <!-- DICE CONTAINER -->
       <div class="absolute diceBox">
-        <div class="dice"><img /></div>
+        <div class="dice"><img src="../images/dice1.png" /></div>
         <button
           class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75"
           id="roll-button"
         >
-          Roll the dice
+          ROLL DICE
         </button>
-        <p>Nombre : <span id="number"></span></p>
+        <br />
         <button
-          class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+          class="mt-9 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
           id="save"
         >
-          Sauvegarder
+          HOLD
         </button>
       </div>
 
+      <!-- PLAYER 2 CONTAINER -->
       <div class="bg-sky-500/70 basis-2/4">
         <h1>Player 2</h1>
         <p>Compteur : <span id="count"></span></p>
