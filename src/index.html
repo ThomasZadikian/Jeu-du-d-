@@ -50,12 +50,14 @@
       </div>
 
       <!-- PLAYER 2 CONTAINER -->
-      <div class="bg-sky-500/70 basis-2/4">
-        <h1>Player 2</h1>
-        <p>Compteur : <span id="count"></span></p>
-        <p>Total :<span id="totalPlayer1"> </span></p>
+      <div class="basis-2/4" id="player1Container">
+        <h1 class="text-5xl text-center">PLAYER 2</h1>
+        <p class="text-center mt-10 text-5xl" id="totalPlayer1">0</p>
+        <div class="currentScore text-center">
+          <p class="mt-10">Current</p>
+          <p class="text-5xl" id="count">0</p>
+        </div>
       </div>
-    </div>
 
     <script src="./components/player.js" type="module"></script>
     <script src="./index.js"></script>
