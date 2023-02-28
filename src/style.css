@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 * {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif ;
 }
 
 .diceBox {
@@ -13,4 +13,12 @@
   #roll-button {
    margin-top: 250px; 
   }
-  
+
+  .currentScore {
+    height: 110px;
+    width: 165px;
+    border-radius: 2%;
+    left: 43%;
+    top: 120%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }

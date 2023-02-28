@@ -12,6 +12,8 @@ actualCount = 0;
 round = 0;
 totalCount = 0;
 
+// Class for activ player slate-700/100
+
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
