@@ -1,15 +1,9 @@
+* {
+  background-color: bisque;
+}
 .diceBox {
     top : 25%; 
     left: 50%;
     transform: translateX(-50%);
-  }
-  
-  .dice {
-    height: 50px;
-    width: 50px;
-    background-color: rgba(rgb(247, 8, 8), 0.5);
-  }
-  .diceOne {
-  
   }
   
