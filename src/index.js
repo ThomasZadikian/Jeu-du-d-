@@ -11,6 +11,7 @@ let save = document.getElementById("save");
 // Variable for scoring
 let numberRandom = document.getElementById("number");
 let gameOver = document.getElementById("gameOver");
+let newGame = document.getElementById("newGame");
 
 playerOneTotalCount = 0;
 playerTwoTotalCount = 0;
@@ -88,4 +89,11 @@ save.addEventListener("click", () => {
     player2Turn = false;
     player1Turn = true;
   }
+});
+
+newGame.addEventListener("click", () => {
+  playerOneTotalCount = 0;
+  totalPlayer1.innerHTML = playerOneTotalCount;
+  playerTwoTotalCount = 0;
+  totalPlayer2.innerHTML = playerTwoTotalCount;
 });
