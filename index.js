@@ -24,26 +24,21 @@ playerOneTotalCount = 0;
 playerTwoTotalCount = 0;
 playerOneActualCount = 0;
 playerTwoActualCount = 0;
-totalCount = 0;
+gameFinish = false;
 player1Turn = true;
 player2Turn = false;
 
 // TODO : animate dice roll
 // TODO : Optimize logic
-// => Une seule fonction de jeu
 // TODO : Cleaning code and logic
 
 function turnSystem() {
-  if (playerOneTotalCount >= 100 || playerTwoTotalCount >= 100) {
-    gameOver.style.visibility = "visible";
+  if (player1Turn === false) {
+    player2Turn = true;
+    player2Play();
   } else {
-    if (player1Turn === false) {
-      player2Turn = true;
-      player2Play();
-    } else {
-      player1Turn = true;
-      player1Play();
-    }
+    player1Turn = true;
+    player1Play();
   }
 }
 
@@ -51,30 +46,40 @@ function holdSystem() {
   if (player1Turn === true) {
     playerOneTotalCount += playerOneActualCount;
     totalPlayer1.innerHTML = playerOneTotalCount;
-    playerOneActualCount = 0;
-    currentPlayerOne.innerHTML = playerOneActualCount;
-    playerOneContainer.classList.remove("bg-red-400");
-    playerOneActive.classList.remove("activePlayer");
-    playerTwoContainer.classList.add("bg-red-400");
-    playerTwoActive.classList.add("activePlayer");
-    player1Turn = false;
-    player2Turn = true;
+    if (playerOneTotalCount >= 100 || playerTwoTotalCount >= 100) {
+      gameOver.style.visibility = "visible";
+      gameFinish = true;
+    } else {
+      playerOneActualCount = 0;
+      currentPlayerOne.innerHTML = playerOneActualCount;
+      playerOneContainer.classList.remove("bg-red-400");
+      playerOneActive.classList.remove("activePlayer");
+      playerTwoContainer.classList.add("bg-red-400");
+      playerTwoActive.classList.add("activePlayer");
+      player1Turn = false;
+      player2Turn = true;
+    }
   } else {
     playerTwoTotalCount += playerTwoActualCount;
     totalPlayer2.innerHTML = playerTwoTotalCount;
-    playerTwoActualCount = 0;
-    currentPlayerTwo.innerHTML = playerTwoActualCount;
-    playerTwoContainer.classList.remove("bg-red-400");
-    playerTwoActive.classList.remove("activePlayer");
-    playerOneContainer.classList.add("bg-red-400");
-    playerOneActive.classList.add("activePlayer");
-    player2Turn = false;
-    player1Turn = true;
+    if (playerOneTotalCount >= 100 || playerTwoTotalCount >= 100) {
+      gameOver.style.visibility = "visible";
+      gameFinish = true;
+    } else {
+      playerTwoActualCount = 0;
+      currentPlayerTwo.innerHTML = playerTwoActualCount;
+      playerTwoContainer.classList.remove("bg-red-400");
+      playerTwoActive.classList.remove("activePlayer");
+      playerOneContainer.classList.add("bg-red-400");
+      playerOneActive.classList.add("activePlayer");
+      player2Turn = false;
+      player1Turn = true;
+    }
   }
 }
 
 function player1Play() {
-  let numb = Math.floor(Math.random() * (6 - 1) + 1);
+  let numb = Math.floor(Math.random() * (7 - 1) + 1);
   const diceImage = "/images/dice" + numb + ".png";
   diceIMG.setAttribute("src", diceImage);
   if (numb === 1) {
@@ -110,9 +115,13 @@ function player2Play() {
   currentPlayerTwo.innerHTML = playerTwoActualCount;
 }
 
-roll.addEventListener("click", turnSystem);
+roll.addEventListener("click", () => {
+  gameFinish ? null : turnSystem();
+});
 
-save.addEventListener("click", holdSystem);
+save.addEventListener("click", () => {
+  gameFinish ? null : holdSystem();
+});
 
 newGame.addEventListener("click", () => {
   playerOneTotalCount = 0;
@@ -122,6 +131,7 @@ newGame.addEventListener("click", () => {
   playerTwoActualCount = 0;
   totalPlayer2.innerHTML = playerTwoTotalCount;
   gameOver.style.visibility = "hidden";
+  gameFinish = false;
   player1Turn = true;
   player2Turn = false;
   turnSystem();
