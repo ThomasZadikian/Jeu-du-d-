@@ -14,13 +14,13 @@
     <main class="relative flex">
       <!-- PLAYER 1 CONTAINER -->
       <section class="player" id="player1Container">
-        <h1 class="text-6xl text-center text-slate-700/100 font-light">
+        <h1 class="text-6xl text-center font-light">
           PLAYER 1
           <span class="" id="player1Active"></span>
         </h1>
 
         <p
-          class="text-center mt-10 text-5xl text-red-700 font-light"
+          class="text-center mt-10 text-5xl text-blue-500 font-light"
           id="totalPlayer1"
         >
           0
@@ -57,11 +57,11 @@
           class="btnIcons"
         />New game
       </button>
-      <button class="absolute btn btnRollDice text-5xl">
+      <button class="absolute btn btnRollDice text-5xl" id="rollButton">
         <img src="../images/reload.svg" alt="Turn the dice" class="btnIcons" />
         Roll dice
       </button>
-      <button class="absolute btn btnHold text-5xl">
+      <button class="absolute btn btnHold text-5xl" id="holdButton">
         <img src="../images/hold.svg" alt="Hold score" class="btnIcons" />Hold
       </button>
       <p id="gameOver"></p>
