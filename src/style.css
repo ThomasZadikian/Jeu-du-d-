@@ -74,10 +74,6 @@ main {
   transition: all 0.75s;
 }
 
-#newGame {
-  position: absolute;
-  top: 4rem;
-}
 
 #roll-button {
    margin-top: 250px; 

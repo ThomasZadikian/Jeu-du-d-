@@ -116,8 +116,12 @@ save.addEventListener("click", holdSystem);
 
 newGame.addEventListener("click", () => {
   playerOneTotalCount = 0;
+  playerOneActualCount = 0;
   totalPlayer1.innerHTML = playerOneTotalCount;
   playerTwoTotalCount = 0;
+  playerTwoActualCount = 0;
   totalPlayer2.innerHTML = playerTwoTotalCount;
+  player1Turn = true;
+  player2Turn = false;
   turnSystem();
 });
