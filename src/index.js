@@ -25,10 +25,11 @@ player2Turn = false;
 // Class for activ player slate-700/100
 // TODO : Style for active player
 // TODO : Optimize style and logic
+// => Une seule fonction de jeu
 // TODO : Cleaning code and logic
 
 function turnSystem() {
-  if (playerOneTotalCount > 100 || playerTwoTotalCount > 100) {
+  if (playerOneTotalCount >= 100 || playerTwoTotalCount >= 100) {
     gameOver.innerHTML = "Le partie est terminée";
   } else {
     if (player1Turn === false) {
@@ -46,7 +47,7 @@ function randomNumber(min, max) {
 }
 
 function player1Play() {
-  let numb = randomNumber(2, 6);
+  let numb = randomNumber(1, 6);
   playerOneContainer.classList.add("bg-slate-800");
   const diceImage = "../images/dice" + numb + ".png";
   document.querySelectorAll("img")[0].setAttribute("src", diceImage);
