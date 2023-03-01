@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/dist/output.css" rel="stylesheet" />
-    <link href="./src/style.css" rel="stylesheet" />
+    <link href="input.css" rel="stylesheet" />
 
     <title>Jeu du dé</title>
   </head>
+
   <body class="flex justify-center font-normal h-screen">
+    <p
+      class="absolute left-1/2 -translate-x-1/2 top-0 bg-green-400 text-center rounded-xl shadow-lg text-3xl mt-2 pt-4"
+      id="gameOver"
+    >
+      Le jeu est terminé !
+    </p>
     <!-- Game container -->
     <main class="relative flex">
       <!-- PLAYER 1 CONTAINER -->
@@ -29,8 +36,8 @@
           0
         </p>
         <div class="currentScore absolute bg-red-500 text-center rounded-xl">
-          <p class="mt-3 text-xl text-slate-700/100 font-normal">CURRENT</p>
-          <p class="text-5xl text-white mt-3" id="currentPlayerOne">0</p>
+          <p class="mt-3 text-3xl text-slate-700/100 font-normal">CURRENT</p>
+          <p class="text-7xl text-white mt-3" id="currentPlayerOne">0</p>
         </div>
       </section>
 
@@ -49,12 +56,12 @@
           0
         </p>
         <div class="currentScore absolute bg-red-500 rounded-xl text-center">
-          <p class="mt-3 text-xl text-slate-700/100 font-normal">CURRENT</p>
-          <p class="text-5xl text-white mt-3" id="currentPlayerTwo">0</p>
+          <p class="mt-3 text-3xl text-slate-700/100 font-normal">CURRENT</p>
+          <p class="text-7xl text-white mt-3" id="currentPlayerTwo">0</p>
         </div>
       </section>
 
-      <!-- DICE CONTAINER -->
+      <!-- GAME CONTAINER -->
       <img
         src="../images/dice1.png"
         alt="Dice for game"
@@ -68,25 +75,32 @@
         <img
           src="../images/newGame.svg"
           alt="Reload the game"
-          class="btnIcons"
+          class="btnIcons mr-3"
         />New game
       </button>
       <button
         class="flex absolute btn btnRollDice text-5xl items-center left-1/2"
         id="rollButton"
       >
-        <img src="../images/reload.svg" alt="Turn the dice" class="btnIcons" />
+        <img
+          src="../images/reload.svg"
+          alt="Turn the dice"
+          class="btnIcons mr-3"
+        />
         Roll dice
       </button>
       <button
         class="flex absolute btn btnHold text-5xl items-center left-1/2"
         id="holdButton"
       >
-        <img src="../images/hold.svg" alt="Hold score" class="btnIcons" />Hold
+        <img
+          src="../images/hold.svg"
+          alt="Hold score"
+          class="btnIcons mr-3"
+        />Hold
       </button>
-      <p id="gameOver"></p>
     </main>
 
-    <script src="./src/index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

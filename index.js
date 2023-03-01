@@ -35,9 +35,9 @@ player2Turn = false;
 
 function turnSystem() {
   if (playerOneTotalCount >= 100 || playerTwoTotalCount >= 100) {
-    gameOver.innerHTML = "Le partie est terminée";
+    gameOver.style.visibility = "visible";
   } else {
-    if ((player1Turn === false) | (player2Turn === true)) {
+    if (player1Turn === false) {
       player2Turn = true;
       player2Play();
     } else {
@@ -75,8 +75,8 @@ function holdSystem() {
 
 function player1Play() {
   let numb = Math.floor(Math.random() * (6 - 1) + 1);
-  const diceImage = "../images/dice" + numb + ".png";
-  document.querySelectorAll("img")[0].setAttribute("src", diceImage);
+  const diceImage = "/images/dice" + numb + ".png";
+  diceIMG.setAttribute("src", diceImage);
   if (numb === 1) {
     playerOneContainer.classList.remove("bg-red-400");
     playerOneActive.classList.remove("activePlayer");
@@ -121,6 +121,7 @@ newGame.addEventListener("click", () => {
   playerTwoTotalCount = 0;
   playerTwoActualCount = 0;
   totalPlayer2.innerHTML = playerTwoTotalCount;
+  gameOver.style.visibility = "hidden";
   player1Turn = true;
   player2Turn = false;
   turnSystem();

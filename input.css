@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  }
+}
 
 html {
   font-size: 62.5%;
@@ -12,7 +16,7 @@ html {
 }
 
 body {
-  font-family: 'Lato', sans-serif ;
+  font-family: "Lato", sans-serif;
   color: #333;
   background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
   align-items: center;
@@ -54,7 +58,7 @@ main {
 }
 
 .btnIcons {
-  filter: contrast(75%);  
+  filter: contrast(75%);
   height: 45px;
   width: 45px;
 }
@@ -64,21 +68,11 @@ main {
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
 }
-.diceRoll {
-    animation-duration: 1s;
-    animation-name: slidein;
-}
 
 .player {
-  flex:50%; 
+  flex: 50%;
   transition: all 0.75s;
 }
-
-
-#roll-button {
-   margin-top: 250px; 
-}
-
 .currentScore {
   height: 110px;
   width: 165px;
@@ -91,3 +85,15 @@ main {
   width: 20px;
   margin-left: 10px;
 }
+
+#roll-button {
+  margin-top: 250px;
+}
+
+#gameOver {
+  opacity: 85%;
+  height: 50px;
+  width: 350px;
+  visibility: hidden;
+}
+
