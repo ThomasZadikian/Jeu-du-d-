@@ -3,6 +3,7 @@ const dice = document.getElementById("dice");
 const roll = document.getElementById("rollButton");
 const hold = document.getElementById("holdButton");
 const newGame = document.getElementById("newGame");
+const gameOver = document.getElementById("gameOver");
 
 //get element for players
 const player0 = document.getElementById("activePlayer0");
@@ -14,6 +15,7 @@ let randomNumber = 0;
 let roundScore = 0;
 let activePlayer = 0;
 let scores = [0, 0];
+let finish = false;
 
 function rollDice() {
   let numb = Math.floor(Math.random() * (7 - 1) + 1);
@@ -44,6 +46,7 @@ function holdScore() {
     scores[activePlayer];
   if (scores[activePlayer] >= 100) {
     gameOver.style.visibility = "visible";
+    finish = true;
   } else {
     changePlayer();
   }
@@ -53,6 +56,10 @@ const replay = function () {
   document.location.reload();
 };
 
-roll.addEventListener("click", rollDice);
-hold.addEventListener("click", holdScore);
+roll.addEventListener("click", () => {
+  finish ? null : rollDice();
+});
+hold.addEventListener("click", () => {
+  finish ? null : holdScore();
+});
 newGame.addEventListener("click", replay);
