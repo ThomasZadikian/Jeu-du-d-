@@ -22,42 +22,39 @@
       <!-- PLAYER 1 CONTAINER -->
       <section
         class="player flex p-36 flex-col items-center bg-red-400"
-        id="player1Container"
+        id="player0"
       >
         <h1 class="text-6xl text-center font-light">
           PLAYER 1
-          <span class="activePlayer" id="player1Active"></span>
+          <span class="activePlayer" id="activePlayer0"></span>
         </h1>
 
+        <p
+          class="text-center mt-10 text-7xl text-slate-700 font-light"
+          id="totalPlayer0"
+        >
+          0
+        </p>
+        <div class="currentScore absolute bg-red-500 text-center rounded-xl">
+          <p class="mt-3 text-3xl text-slate-700/100 font-normal">CURRENT</p>
+          <p class="text-7xl text-white mt-3" id="currentPlayer0">0</p>
+        </div>
+      </section>
+
+      <!-- PLAYER 2 CONTAINER -->
+      <section class="player flex p-36 flex-col items-center" id="player1">
+        <h1 class="text-6xl text-center text-slate-700/100 font-light">
+          PLAYER 2<span id="activePlayer1" class=""></span>
+        </h1>
         <p
           class="text-center mt-10 text-7xl text-slate-700 font-light"
           id="totalPlayer1"
         >
           0
         </p>
-        <div class="currentScore absolute bg-red-500 text-center rounded-xl">
-          <p class="mt-3 text-3xl text-slate-700/100 font-normal">CURRENT</p>
-          <p class="text-7xl text-white mt-3" id="currentPlayerOne">0</p>
-        </div>
-      </section>
-
-      <!-- PLAYER 2 CONTAINER -->
-      <section
-        class="player flex p-36 flex-col items-center"
-        id="player2Container"
-      >
-        <h1 class="text-6xl text-center text-slate-700/100 font-light">
-          PLAYER 2<span id="player2Active"></span>
-        </h1>
-        <p
-          class="text-center mt-10 text-7xl text-slate-700 font-light"
-          id="totalPlayer2"
-        >
-          0
-        </p>
         <div class="currentScore absolute bg-red-500 rounded-xl text-center">
           <p class="mt-3 text-3xl text-slate-700/100 font-normal">CURRENT</p>
-          <p class="text-7xl text-white mt-3" id="currentPlayerTwo">0</p>
+          <p class="text-7xl text-white mt-3" id="currentPlayer1">0</p>
         </div>
       </section>
 

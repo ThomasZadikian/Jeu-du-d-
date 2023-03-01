@@ -1,141 +1,58 @@
-// get element for player
-let currentPlayerOne = document.getElementById("currentPlayerOne");
-let currentPlayerTwo = document.getElementById("currentPlayerTwo");
-let totalPlayer1 = document.getElementById("totalPlayer1");
-let totalPlayer2 = document.getElementById("totalPlayer2");
+//get element for gameSystem
+const dice = document.getElementById("dice");
+const roll = document.getElementById("rollButton");
+const hold = document.getElementById("holdButton");
+const newGame = document.getElementById("newGame");
 
-// Get element for container
-let playerOneContainer = document.getElementById("player1Container");
-let playerTwoContainer = document.getElementById("player2Container");
-let playerOneActive = document.getElementById("player1Active");
-let playerTwoActive = document.getElementById("player2Active");
+//get element for players
+const player0 = document.getElementById("activePlayer0");
+const player0Background = document.getElementById("player0");
+const player1 = document.getElementById("activePlayer1");
+const player1Background = document.getElementById("player1");
 
-// Variable for dice
-let roll = document.getElementById("rollButton");
-let save = document.getElementById("holdButton");
-let diceIMG = document.getElementById("dice");
+let randomNumber = 0;
+let roundScore = 0;
+let activePlayer = 0;
+let scores = [0, 0];
 
-// get element for scoring
-let numberRandom = document.getElementById("number");
-let gameOver = document.getElementById("gameOver");
-let newGame = document.getElementById("newGame");
-
-playerOneTotalCount = 0;
-playerTwoTotalCount = 0;
-playerOneActualCount = 0;
-playerTwoActualCount = 0;
-gameFinish = false;
-player1Turn = true;
-player2Turn = false;
-
-// TODO : animate dice roll
-// TODO : Optimize logic
-// TODO : Cleaning code and logic
-
-//
-
-function turnSystem() {
-  if (player1Turn === false) {
-    player2Turn = true;
-    player2Play();
-  } else {
-    player1Turn = true;
-    player1Play();
-  }
-}
-
-function holdSystem() {
-  if (player1Turn === true) {
-    playerOneTotalCount += playerOneActualCount;
-    totalPlayer1.innerHTML = playerOneTotalCount;
-    if (playerOneTotalCount >= 100 || playerTwoTotalCount >= 100) {
-      gameOver.style.visibility = "visible";
-      gameFinish = true;
-    } else {
-      playerOneActualCount = 0;
-      currentPlayerOne.innerHTML = playerOneActualCount;
-      playerOneContainer.classList.remove("bg-red-400");
-      playerOneActive.classList.remove("activePlayer");
-      playerTwoContainer.classList.add("bg-red-400");
-      playerTwoActive.classList.add("activePlayer");
-      player1Turn = false;
-      player2Turn = true;
-    }
-  } else {
-    playerTwoTotalCount += playerTwoActualCount;
-    totalPlayer2.innerHTML = playerTwoTotalCount;
-    if (playerOneTotalCount >= 100 || playerTwoTotalCount >= 100) {
-      gameOver.style.visibility = "visible";
-      gameFinish = true;
-    } else {
-      playerTwoActualCount = 0;
-      currentPlayerTwo.innerHTML = playerTwoActualCount;
-      playerTwoContainer.classList.remove("bg-red-400");
-      playerTwoActive.classList.remove("activePlayer");
-      playerOneContainer.classList.add("bg-red-400");
-      playerOneActive.classList.add("activePlayer");
-      player2Turn = false;
-      player1Turn = true;
-    }
-  }
-}
-
-function player1Play() {
+function rollDice() {
   let numb = Math.floor(Math.random() * (7 - 1) + 1);
   const diceImage = "/images/dice" + numb + ".png";
-  diceIMG.setAttribute("src", diceImage);
-  if (numb === 1) {
-    playerOneContainer.classList.remove("bg-red-400");
-    playerOneActive.classList.remove("activePlayer");
-    playerTwoContainer.classList.add("bg-red-400");
-    playerTwoActive.classList.add("activePlayer");
-    playerOneActualCount = 0;
-    player1Turn = false;
-    player2Turn = true;
+  dice.setAttribute("src", diceImage);
+  if (numb !== 1) {
+    roundScore += numb;
+    document.getElementById(`currentPlayer${activePlayer}`).textContent =
+      roundScore;
   } else {
-    playerOneActualCount += numb;
+    changePlayer();
   }
-  currentPlayerOne.innerHTML = playerOneActualCount;
 }
 
-function player2Play() {
-  let numb = Math.floor(Math.random() * (6 - 1) + 1);
-
-  const diceImage = "../images/dice" + numb + ".png";
-  document.querySelectorAll("img")[0].setAttribute("src", diceImage);
-  if (numb === 1) {
-    playerTwoContainer.classList.remove("bg-red-400");
-    playerTwoActive.classList.remove("activePlayer");
-    playerOneContainer.classList.add("bg-red-400");
-    playerOneActive.classList.add("activePlayer");
-    playerTwoActualCount = 0;
-    player2Turn = false;
-    player1Turn = true;
-  } else {
-    playerTwoActualCount += numb;
-  }
-  currentPlayerTwo.innerHTML = playerTwoActualCount;
+function changePlayer() {
+  roundScore = 0;
+  document.getElementById(`currentPlayer${activePlayer}`).textContent = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  player0.classList.toggle("activePlayer");
+  player1.classList.toggle("activePlayer");
+  player0Background.classList.toggle("bg-red-400");
+  player1Background.classList.toggle("bg-red-400");
 }
 
-roll.addEventListener("click", () => {
-  gameFinish ? null : turnSystem();
-});
+function holdScore() {
+  scores[activePlayer] += roundScore;
+  document.getElementById(`totalPlayer${activePlayer}`).textContent =
+    scores[activePlayer];
+  if (scores[activePlayer] >= 100) {
+    gameOver.style.visibility = "visible";
+  } else {
+    changePlayer();
+  }
+}
 
-save.addEventListener("click", () => {
-  gameFinish ? null : holdSystem();
-});
+const replay = function () {
+  document.location.reload();
+};
 
-newGame.addEventListener("click", () => {
-  playerOneTotalCount = 0;
-  playerOneActualCount = 0;
-  currentPlayerOne.innerHTML = 0;
-  totalPlayer1.innerHTML = playerOneTotalCount;
-  playerTwoTotalCount = 0;
-  playerTwoActualCount = 0;
-  currentPlayerTwo.innerHTML = 0;
-  totalPlayer2.innerHTML = playerTwoTotalCount;
-  gameOver.style.visibility = "hidden";
-  gameFinish = false;
-  player1Turn = true;
-  player2Turn = false;
-});
+roll.addEventListener("click", rollDice);
+hold.addEventListener("click", holdScore);
+newGame.addEventListener("click", replay);
