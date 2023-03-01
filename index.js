@@ -134,5 +134,4 @@ newGame.addEventListener("click", () => {
   gameFinish = false;
   player1Turn = true;
   player2Turn = false;
-  turnSystem();
 });
