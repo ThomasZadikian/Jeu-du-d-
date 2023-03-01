@@ -6,88 +6,92 @@
   box-sizing: inherit;
   }
 
-  html {
+html {
   font-size: 62.5%;
   box-sizing: border-box;
-  }
+}
 
-  body {
+body {
   font-family: 'Lato', sans-serif ;
   color: #333;
   background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
   align-items: center;
-  }
+}
 
-  main {
-    width: 150rem;
-    height: 80rem;
-    background-color: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(200px);
-    filter: blur();
-    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
-    border-radius: 9px;
-    overflow: hidden;
-    }
+main {
+  width: 150rem;
+  height: 80rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+}
 
-  .btn {
-    transform: translateX(-50%);
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
-    background-color: none;
-    }
+.btn {
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: none;
+}
 
-    .btnNewGame {
-    top: 4rem;
-    }
+.btnNewGame {
+  top: 4rem;
+}
 
-    .btnRollDice {
-    top: 45rem;
-    }
+.btnRollDice {
+  top: 45rem;
+}
 
-    .btnHold {
-    top: 55rem;
-    }
+.btnHold {
+  top: 55rem;
+}
 
-    .btn:active {
-    transform: translate(-50%, 3px);
-    }
+.btn:active {
+  transform: translate(-50%, 3px);
+}
 
-    .btnIcons {
-    filter: contrast(75%);  
-    height: 45px;
-     width: 45px;
-    }
+.btnIcons {
+  filter: contrast(75%);  
+  height: 45px;
+  width: 45px;
+}
 
-    .dice {
-    transform: translateX(-50%);
-    height: 10rem;
-    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
-    }
+.dice {
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+.diceRoll {
+    animation-duration: 1s;
+    animation-name: slidein;
+}
 
-  .player {
-    flex:50%; 
-    transition: all 0.75s;
-    }
+.player {
+  flex:50%; 
+  transition: all 0.75s;
+}
 
 #newGame {
   position: absolute;
   top: 4rem;
 }
 
-  #roll-button {
+#roll-button {
    margin-top: 250px; 
-  }
+}
 
-  .currentScore {
-    height: 110px;
-    width: 165px;
-    top: 60%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  }
+.currentScore {
+  height: 110px;
+  width: 165px;
+  top: 60%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
-  .activePlayer {
-    content: url(../images/circle.svg);
-    width: 20px;
-    margin-left: 10px;
-  }
+.activePlayer {
+  content: url(../images/circle.svg);
+  width: 20px;
+  margin-left: 10px;
+}

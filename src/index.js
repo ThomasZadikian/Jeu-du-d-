@@ -13,6 +13,7 @@ let playerTwoActive = document.getElementById("player2Active");
 // Variable for dice
 let roll = document.getElementById("rollButton");
 let save = document.getElementById("holdButton");
+let diceIMG = document.getElementById("dice");
 
 // get element for scoring
 let numberRandom = document.getElementById("number");
@@ -31,11 +32,6 @@ player2Turn = false;
 // TODO : Optimize logic
 // => Une seule fonction de jeu
 // TODO : Cleaning code and logic
-
-// playerOneContainer.classList.remove("bg-red-400");
-// playerTwoContainer.classList.add("bg-red-400");
-// playerOneActive.classList.remove("activePlayer");
-// playerTwoActive.classList.add("activePlayer");
 
 function turnSystem() {
   if (playerOneTotalCount >= 100 || playerTwoTotalCount >= 100) {
@@ -57,6 +53,10 @@ function holdSystem() {
     totalPlayer1.innerHTML = playerOneTotalCount;
     playerOneActualCount = 0;
     currentPlayerOne.innerHTML = playerOneActualCount;
+    playerOneContainer.classList.remove("bg-red-400");
+    playerOneActive.classList.remove("activePlayer");
+    playerTwoContainer.classList.add("bg-red-400");
+    playerTwoActive.classList.add("activePlayer");
     player1Turn = false;
     player2Turn = true;
   } else {
@@ -64,6 +64,10 @@ function holdSystem() {
     totalPlayer2.innerHTML = playerTwoTotalCount;
     playerTwoActualCount = 0;
     currentPlayerTwo.innerHTML = playerTwoActualCount;
+    playerTwoContainer.classList.remove("bg-red-400");
+    playerTwoActive.classList.remove("activePlayer");
+    playerOneContainer.classList.add("bg-red-400");
+    playerOneActive.classList.add("activePlayer");
     player2Turn = false;
     player1Turn = true;
   }
@@ -75,7 +79,9 @@ function player1Play() {
   document.querySelectorAll("img")[0].setAttribute("src", diceImage);
   if (numb === 1) {
     playerOneContainer.classList.remove("bg-red-400");
+    playerOneActive.classList.remove("activePlayer");
     playerTwoContainer.classList.add("bg-red-400");
+    playerTwoActive.classList.add("activePlayer");
     playerOneActualCount = 0;
     player1Turn = false;
     player2Turn = true;
@@ -92,7 +98,9 @@ function player2Play() {
   document.querySelectorAll("img")[0].setAttribute("src", diceImage);
   if (numb === 1) {
     playerTwoContainer.classList.remove("bg-red-400");
+    playerTwoActive.classList.remove("activePlayer");
     playerOneContainer.classList.add("bg-red-400");
+    playerOneActive.classList.add("activePlayer");
     playerTwoActualCount = 0;
     player2Turn = false;
     player1Turn = true;
