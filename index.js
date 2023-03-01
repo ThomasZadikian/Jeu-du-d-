@@ -32,6 +32,8 @@ player2Turn = false;
 // TODO : Optimize logic
 // TODO : Cleaning code and logic
 
+//
+
 function turnSystem() {
   if (player1Turn === false) {
     player2Turn = true;
