@@ -3,6 +3,8 @@ let currentPlayerOne = document.getElementById("currentPlayerOne");
 let currentPlayerTwo = document.getElementById("currentPlayerTwo");
 let totalPlayer1 = document.getElementById("totalPlayer1");
 let playerOneContainer = document.getElementById("player1Container");
+let playerOneActive = document.getElementById("player1Active");
+let playerTwoActive = document.getElementById("player2Active");
 
 // Variable for dice
 let roll = document.getElementById("roll-button");
@@ -23,7 +25,7 @@ player1Turn = true;
 player2Turn = false;
 
 // Class for activ player slate-700/100
-// TODO : Style for active player
+// TODO : Style for active player && animate dice roll
 // TODO : Optimize style and logic
 // => Une seule fonction de jeu
 // TODO : Cleaning code and logic
@@ -34,14 +36,17 @@ function turnSystem() {
   } else {
     if (player1Turn === false) {
       player2Turn = true;
+      playerOneActive.classList.remove("activePlayer");
+      playerTwoActive.classList.add("activePlayer");
       player2Play();
     } else {
+      playerTwoActive.classList.remove("activePlayer");
+      playerOneActive.classList.add("activePlayer");
       player1Play();
     }
   }
 }
-// Quand un joueur HOLD, c'est au jouieur suivant de jouer
-// Quand un joueur fait 1 c'est au joueur suivant de jouer.
+
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
