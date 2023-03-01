@@ -9,71 +9,81 @@
 
     <title>Jeu du dé</title>
   </head>
-  <body>
-    <div class="flex justify-center mt-10 mb-10">
-      <button
-        class="self-center py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50"
-        id="newGame"
-      >
-        + New Game
-      </button>
-    </div>
-
+  <body class="flex justify-center font-normal h-screen">
     <!-- Game container -->
-    <div class="flex flex-row">
+    <main class="relative flex">
       <!-- PLAYER 1 CONTAINER -->
-      <div class="basis-2/4" id="player1Container">
-        <h1 class="text-6xl text-center text-slate-700/100 font-light">
-          PLAYER 1<span id="player1Active"></span>
+      <section
+        class="player flex p-36 flex-col items-center"
+        id="player1Container"
+      >
+        <h1 class="text-6xl text-center font-light">
+          PLAYER 1
+          <span class="" id="player1Active"></span>
         </h1>
+
         <p
-          class="text-center mt-10 text-5xl text-red-400/100 font-light"
+          class="text-center mt-10 text-7xl text-slate-700 font-light"
           id="totalPlayer1"
         >
           0
         </p>
-        <div class="currentScore relative bg-red-500 text-center">
+        <div class="currentScore absolute bg-red-500 text-center rounded-xl">
           <p class="mt-3 text-xl text-slate-700/100 font-normal">CURRENT</p>
           <p class="text-5xl text-white mt-3" id="currentPlayerOne">0</p>
         </div>
-      </div>
-
-      <!-- DICE CONTAINER -->
-      <div class="absolute diceBox">
-        <img class="dice" src="../images/dice1.png" />
-        <button
-          class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75"
-          id="roll-button"
-        >
-          ROLL DICE
-        </button>
-        <br />
-        <button
-          class="mt-9 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-          id="save"
-        >
-          HOLD
-        </button>
-        <p id="gameOver"></p>
-      </div>
+      </section>
 
       <!-- PLAYER 2 CONTAINER -->
-      <div class="basis-2/4" id="player2Container">
+      <section
+        class="player flex p-36 flex-col items-center"
+        id="player2Container"
+      >
         <h1 class="text-6xl text-center text-slate-700/100 font-light">
           PLAYER 2<span id="player2Active"></span>
         </h1>
         <p
-          class="text-center mt-10 text-5xl text-red-400/100 font-light"
+          class="text-center mt-10 text-7xl text-slate-700 font-light"
           id="totalPlayer2"
         >
           0
         </p>
-        <div class="currentScore relative bg-red-500 text-center">
+        <div class="currentScore absolute bg-red-500 rounded-xl text-center">
           <p class="mt-3 text-xl text-slate-700/100 font-normal">CURRENT</p>
           <p class="text-5xl text-white mt-3" id="currentPlayerTwo">0</p>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <!-- DICE CONTAINER -->
+      <img
+        src="../images/dice1.png"
+        alt="Dice for game"
+        class="dice absolute left-1/2 top-60"
+      />
+      <button
+        class="flex absolute btn btnNewGame text-5xl items-center left-1/2"
+      >
+        <img
+          src="../images/newGame.svg"
+          alt="Reload the game"
+          class="btnIcons"
+        />New game
+      </button>
+      <button
+        class="flex absolute btn btnRollDice text-5xl items-center left-1/2"
+        id="rollButton"
+      >
+        <img src="../images/reload.svg" alt="Turn the dice" class="btnIcons" />
+        Roll dice
+      </button>
+      <button
+        class="flex absolute btn btnHold text-5xl items-center left-1/2"
+        id="holdButton"
+      >
+        <img src="../images/hold.svg" alt="Hold score" class="btnIcons" />Hold
+      </button>
+      <p id="gameOver"></p>
+    </main>
 
     <script src="./index.js"></script>
   </body>
